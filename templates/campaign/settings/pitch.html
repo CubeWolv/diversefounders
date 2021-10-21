@@ -1,0 +1,119 @@
+{% extends 'campaign/campaignsettings.html' %}
+
+
+
+{% block settingsforc %}
+<h2>Pitch</h2>
+<form class="form-for-this">
+
+
+<label>Campaign Name</label><br>
+<input type="text"><br>
+
+
+
+
+
+
+
+
+
+
+
+<label class="label">
+             
+  <input type="image"     onchange='loadFile(event)' name='profileimage'>
+  <span>Select a file</span>
+  
+
+</label> <div class="iasdfff-imadf-df-dfimage-prof"><img id="output" width="300" src="{{st.profileimg}}"></div>
+<button id="reset" class="label">Remove Image</button><br>
+
+
+
+
+
+<style>
+  
+  .iasdfff-imadf-df-dfimage-prof{
+      border:1px solid rgb(90, 89, 89);
+      width:300px;
+      height: 300px;
+      border-radius: 4px;
+  }
+
+  @media(max-width:1020px){
+    .iasdfff-imadf-df-dfimage-prof{
+        margin-left:15px;
+    }
+
+  }
+</style>
+
+
+
+
+
+
+
+
+ 
+<label>Enter a YouTube or Vimeo URL for your video</label><br>
+
+  <p>Add a short video (2-3 mins. make sure the video is set to public</video></p>
+<input type="url"><br>
+
+
+
+
+
+
+
+<label style="margin-top: 100px;">Campaign pitch</label>
+
+<p style="margin-top:20px;font-size:16px;">This is where you get detailed about your campaign, your team, your goals, and of course, your product or service.<br> Tell funders why you are raising money.<br> We recommend keeping it as short and sweet as possible. <br>Use images mixed in with text to tell your story.<br> We recomend images that are a minimum of 1000 pixels wide so they can span the width of your campaign pitch section.</b>
+
+<div class="yo-text-area-editor">
+  <textarea id="get-text-area-for-e">
+    <br>
+    <li>What is the mission of your company or project?</li>
+    <li>Describe the problem you are solving.</li>
+    <li>What is the market size/opportunity?</li>
+    <li>What is your company/product about and how does it solve the problem? </li>
+    <li>Why are you seeking funding and how will you spend the funding?</li>
+    <li>Who is on your team?</li>
+    <li>Thank your backers and make them feel appreciatedggg!</li>
+    <li>Please, replace this example content</li>
+  </textarea>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
+{% block thebuttons %}
+<div class="div-the-buttons-for-saving">
+    <button class="save-as-draf1">Save as draft     <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+  <a href="{% url 'funding' %}" class="boton">Continue editing      <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+    </div>
+{% endblock thebuttons %}
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% block thebuttons %}
+    <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    
+
+
+
+
+
+    
+        <script>
+            $(window).ready(function(){
+    $(".boton").wrapInner('<div class=botontext></div>');
+        
+        $(".botontext").clone().appendTo( $(".boton") );
+        
+        $(".boton").append('<span class="twist"></span><span class="twist"></span><span class="twist"></span><span class="twist"></span>');
+        
+        $(".twist").css("width", "25%").css("width", "+=3px");
+    });
+    
+    </script>
+
+
+
+
+
+    {% endblock thebuttons %}

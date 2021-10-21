@@ -1,0 +1,122 @@
+{% extends "nav.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  {% block head %}
+    <head>
+<title>{{request.user}} | Dashboard</title>
+<meta name="description" content="Affiliate marketing">
+<meta charset="UTF">
+<meta name="author" content="Imran Abdu">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+<meta http-equiv="refresh" content="216000">
+<link rel='icon' href="{% static 'images/icon.png' %}">
+<link rel='stylesheet' href="{% static 'css/dashnav.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+
+body{
+  margin:0px;
+  padding:0px;
+  font-family: "poppins", sans-serif;
+}
+#dashboardlink{
+  border-bottom: 3px solid purple;
+}
+
+
+</style>
+</head>
+{% endblock head %}
+
+{% block content %}
+<style>
+
+</style>
+
+
+
+
+{% if request.user.is_authenticated %}
+<p style="margin-left:30px;">{{request.user}}'s Dashboard </p>
+{% endif %}
+<hr>
+
+<div class="div-12">
+  <div class="shitnavbar">
+<a href="{% url 'dashboard' %}" class="navigator"  id="dashboardlink">Profile</a>
+<a href="{% url 'editprofile' %}" class="navigator" id="editprofile"> Edit profile</a>
+<a href="{% url 'fundingprofile' %}" class="navigator" id="fundingprofile">Funding Profile</a>
+<a href="{% url 'campaigns' %}" class="navigator" id="campaigns">My campaigns</a>
+<li class="navigator"></li>
+  </div>
+</div><br>
+
+
+
+
+<script>
+document.getElementById('niga').innerHTML=`
+<li><a href="" class="timber">Profile</a></li>
+          <li><a href="" class="timber">My Contributons</a></li>
+          <li><a href="" class="timber">My Campaign</a></li>
+          <li><a href="" class="timber">Edit Profile</a></li>
+          <li><a href="{% url 'logoutuser' %}">Logout</a></li>
+`
+
+document.getElementById('contact1').innerHTML=`
+
+<div tabindex="0" class="menu">        <div class="ll"><img src="{% static "images/icon.png" %}" class="igm-profile"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+    <div class="menu-dropdown">
+      <p style="font-size:13px;line-height:10px;color:orange;">Signed in as {{request.user}} 😊</p><hr>
+        <a href="{% url 'dashboard' %}">Profile</a>
+        <a href="{% url 'campaigns' %}">My campaigns</a>
+        <a href="{% url 'fundingprofile' %}">My Contributions </a>
+        <a href="{% url 'editprofile' %}"> Edit profile</a>
+        <hr>
+        <a href="{% url 'logoutuser' %}">Log out</a>
+    </div>
+</div>
+
+
+`
+
+</script>
+
+
+<style>
+  @media (max-width: 1000px) {
+    #niga{
+      display: block;
+    }
+    .timber{
+      display: block;
+    }
+  }
+</style>
+
+<div>
+{% block everything %}
+{% endblock %}
+</div>
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+{% endblock %}
+

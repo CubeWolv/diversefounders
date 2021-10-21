@@ -1,0 +1,173 @@
+{% extends "campaign/camphead.html" %}
+{% load static %}
+
+{% block capcontent %}
+
+<style>
+  body{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .prdas-kdf-im-d3{
+   height:150px;
+  
+  }
+
+  .divio-mamm{
+   text-align: center;
+   width:530px;
+  }
+
+ .as{
+   font-size: 30px;
+ }
+
+ .form-name-ca{
+   left:50%;
+ }
+
+ .input-place-m{
+   width:500px;
+   padding-top:10px;
+   padding-bottom: 10px;
+   border-radius: 4px;
+   border:1px solid grey;
+ }
+
+ .imo-wont-change{
+   background-color: rgb(163, 218, 255);
+   border:1px solid rgb(0, 162, 255);
+   width:600px;
+   text-align: center;
+   padding-top:20px;
+   padding-bottom: 20px;
+   margin-top:30px;
+ }
+
+
+ .ships{
+   background-color: purple;
+   padding-top:10px;
+   padding-bottom: 10px;
+   padding-left:20px;
+   padding-right:20px;
+   width:300px;
+   border-radius: 4px;
+   color:white;
+   margin-top:30px;
+ }
+
+ @media(max-width:645px){
+   .prdas-kdf-im-d3{
+     height:100px;
+   }
+
+   .divio-mamm{
+     width: 100%;
+   }
+
+   .input-place-m{
+     width:95%;
+   }
+   .imo-wont-change{
+     width:90%;
+   }
+ }
+</style>
+
+
+
+<center>
+<div class="divio-mamm">
+<img src="{% static 'images/campaign.png' %}" class="prdas-kdf-im-d3">
+<h1 class="as">Lets get your Campaign out there with diverse founders!</h1>
+<h4 style="text-align: center;">Raise money for your startup, small business, passion campaign, or non-profit.</h4>
+</div>
+
+<hr>
+
+
+
+
+
+ <form class="form-name-ca" onsubmit="return submittheName(this)"> 
+  <label style="margin-top:30px" >Tell us what you are trying to campaign</label><br>
+  <select class="input-place-m" id='namecompany'>
+    <option value="public">Public</option>
+    <option value="personal">Personal</option>
+    <option value="startup">Startup</option>
+
+ </select>
+
+
+  
+  <div class="imo-wont-change">
+   <p class="dsf"> Note: The above field will be locked for this campaign and can’t be changed later.!</p>
+  </div>
+
+
+  <a href="{% url 'campaignsettings' %}"> <p class="ships">Start campaign</p>  </a>
+ </form>
+
+
+
+
+
+
+
+
+
+
+
+ <hr>
+<center>
+<div class="footer-100">
+  
+  <li><img src="{% static 'images/icon.png' %}" width="30px"></li>
+  <div class="hello-im-the-footer">
+  <li><a href="#">Start a campain</a></li>
+  <li><a href="#">Fund</a></li>
+  <li><a href="#">Privacy policy</a></li>
+  <li><a href="#">© 2021 diversefounders, Inc. All Rights Reserved</a></li>
+  </div>
+</div>
+</center>
+
+<style>
+  .footer-100{
+    position: relative;
+    bottom: -100px;;
+     
+  }
+  .footer-100 li{
+      display: inline-block;
+      margin-left:20px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+  
+
+ <script>
+  function submittheName(form){
+    var namecompany=document.getElementById('namecompany').value
+  if(namecompany == ''){
+    return false
+  }
+  else{
+    return true
+  }
+}
+</script>
+
+
+
+{% endblock %}

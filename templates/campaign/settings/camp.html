@@ -1,0 +1,51 @@
+{% extends 'campaign/campaignsettings.html' %}
+
+
+
+{% block settingsforc %}
+<form class="form-for-this">
+
+
+<label>Campaign Name</label><br>
+<input type="text"><br>
+
+
+<label>Campaign Tagline</label><br>
+<textarea cols="68" rows="10"></textarea><br>
+
+<label>Category</label><br>
+<select class="coutry-staff">
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Åland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+</select><br>
+
+<label>Start data</label><br>
+<input type="date"><br>
+
+<label>End data</label><br>
+<input type="date"><br>
+
+
+
+
+{% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
+{% block thebuttons %}
+<div class="div-the-buttons-for-saving">
+    <button class="save-as-draf1">Save as draft     <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+  <a href="{% url 'pitch' %}" class="boton">Continue editing      <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+    </div>
+{% endblock thebuttons %}
+
+
+
+
+
+
+</form>
+{% endblock %}

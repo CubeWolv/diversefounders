@@ -1,0 +1,483 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">   
+{% block head %}
+<head> 
+
+</head>
+{% endblock %}
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Wendy+One&display=swap");
+
+@font-face {
+  font-family: AstroSpace;
+  src: url(/fonts/AstroSpace.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+
+.main-nav {
+  height: 45px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.logo {
+  color:rgb(53, 53, 53);
+  line-height: 60px;
+  font-size: 23px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  color:black;
+  text-decoration: none;
+}
+
+a:checked{
+  color:black;
+  text-decoration: none;
+}
+
+a:hover{
+  color:silver;
+  text-decoration: none;
+}
+
+a:enabled{
+  color:silver;
+  text-decoration: none;
+}
+
+
+.logo:hover{
+    color:#313131;
+    text-decoration: none;
+}
+
+.navlinks {
+  list-style: none;
+  float: right;
+  line-height: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.navlinks li {
+  display: inline-block;
+  margin:0px 20px;
+}
+
+.navlinks li a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.3s linear 0s;
+  text-transform: uppercase;
+  color:black
+}
+
+
+.lipo:hover{
+    color: rgb(170, 170, 170);
+  padding-bottom: 7px;
+  border-bottom: 2px solid rgb(255, 208, 0);
+}
+
+#contact {
+  background-color: rgb(250, 212, 0);
+  padding: 9px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  border-bottom: none;
+}
+
+#contact:hover {
+  background-color: #e9ab00;
+  color: white;
+  border-bottom: none;
+}
+
+#check {
+  display: none;
+}
+
+.menu-btn {
+  font-size: 20px;
+  color: black;
+  float: right;
+  line-height: 60px;
+  margin-right: 40px;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width:1020px){
+  .logo {
+    margin-left:5px
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .navlinks {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 10; 
+    text-align: center;
+    transition: all 0.5s;
+    right: -100%;
+    overflow: hidden;
+    top:10%;
+    background: #222831;
+  }
+
+ 
+
+  input:focus {
+  transition: 0.5s;
+  border: 1px solid rgb(45, 113, 180) !important;
+  box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+  -moz-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+  -webkit-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+  }
+  
+  input:focus{
+  outline-offset: 0px !important;
+  outline: none !important;
+  }
+
+  .waza{
+      margin-top:30px
+  }
+
+  .navlinks li {
+    display: block;
+  }
+
+  .navlinks li a {
+    font-size: 20px;
+    color:white;
+  }
+
+  .navlinks li a:hover {
+    border-bottom: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  #check:checked ~ .navlinks {
+    right: 0%;
+  }
+
+}
+
+
+
+
+@media (max-width: 360px) {
+  .logo {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .menu-btn {
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  .menu-btn:focus {
+    color: blue;
+  }
+
+
+}
+
+
+.searchbar {
+  margin-left:30px;
+  width: 130px;
+   border: 1px solid grey;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url("{% static 'images/search.png' %}");
+  background-position: 10px 5px; 
+  background-repeat: no-repeat;
+  padding-top:6px;
+  padding-left:35px;
+  padding-bottom:6px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+
+}
+
+.searchbar:focus {
+  transition: 0.5s;
+  border: 1px solid rgb(255, 191, 0) !important;
+  box-shadow: 0 0 3px rgb(255, 194, 18) !important;
+  -moz-box-shadow: 0 0 3px rgb(255, 194, 18) !important;
+  -webkit-box-shadow: 0 0 3px rgb(255, 194, 18) !important;
+  }
+  
+  .searchbar:focus{
+  outline-offset: 0px !important;
+  outline: none !important;
+  }
+
+.searchbar:focus {
+  width: 35%;
+}
+
+@media(max-width:1300px){
+.searchbar:focus {
+  width: 25%;
+}
+}
+
+@media (max-width:1100px){
+.searchbar:focus {
+  width: 200px;
+}
+}
+
+
+@media(max-width:550px){
+
+.searchbar{
+width:0px;
+float:right;
+margin-right: 10px;
+margin-top:3%;
+border:none;
+
+}
+
+.searchbar:focus{
+  width:0%;
+}
+
+
+
+}
+
+.hr1{
+border:1px solid rgb(197, 197, 197);
+margin-bottom: 0px;
+}
+
+
+
+.signup-and-login-forms{
+  width:100%;
+   height:110%;
+  position: absolute;
+  top:0vw;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+
+
+
+
+.f-v-lc{
+width:300px;
+padding-top:10px;
+padding-bottom: 10px;
+border-radius: 5px;
+border:1px solid grey;
+margin-top:20px;
+margin-left:70px;
+margin-right: 70px;
+padding-left:10px;
+padding-right: 5px;
+}
+
+.f-v-lc:focus {
+  transition: 0.5s;
+  border: 1px solid rgb(45, 113, 180) !important;
+  box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+  -moz-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+  -webkit-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+  }
+  
+  .f-v-lc:focus{
+  outline-offset: 0px !important;
+  outline: none !important;
+  }
+
+
+#form1{
+  display: block;
+}
+
+
+@media(max-width:450px){
+
+  .forms{
+    position: fixed;
+    width:100%;
+    height: 100%;
+  }
+
+  .signup-and-login-forms{
+  width:100%;
+   height:120%;
+  position: absolute;
+  top:0vw;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+
+form{
+
+  z-index: -1;
+}
+
+#form1{
+  position: absolute;
+}
+
+  .f-v-lc{
+width:90%;
+padding-top:10px;
+padding-bottom: 10px;
+border-radius: 5px;
+border:1px solid grey;
+margin-top:20px;
+margin-left:15px;
+
+}
+
+.for-pass{
+  width:0px
+}
+
+}
+
+.ef{
+  text-align: center;
+  color:grey;
+  font-size:12px;
+}
+
+.timber{
+  display: none;
+}
+
+#niga{
+  display: none;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <body>
+    <header>
+      <nav class="main-nav">
+        <input type="checkbox" id="check" />
+        <label for="check" class="menu-btn">
+          <i class="fa fa-bars" style="color:#222831;"></i>
+
+        </label>
+        <a href="{% url 'home' %}" class="logo">DIVERSE FOUNDERS</a>
+
+            <input type="text" name="search" placeholder="Search.." class="searchbar">
+  
+          
+          
+
+        <ul class="navlinks">
+
+
+            <div class="waza">
+       <li class="ds"><a href="{% url 'projects' %}" class="lipo">Startups</a></li>
+          <li><a href="#" class="lipo">Start a Campaign</a></li>
+          <li><a href="#" class="lipo">About</a></li>
+          <li id='contact1'><a href="{% url 'login' %}" id="contact">Log In</a></li>
+ 
+          <div id="niga">
+
+          </div>
+          
+
+      
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <hr class="hr1">
+
+
+
+
+
+{% block content %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
+
