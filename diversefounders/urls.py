@@ -20,7 +20,7 @@ from django.contrib.auth import views as auth_view
 from accounts import views as ac
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', include('main.urls')),
     path('signup/',ac.signup, name='signup'),
     path('accounts/login/', ac.login, name='login'),
