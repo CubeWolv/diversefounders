@@ -15,114 +15,109 @@
 <link rel="stylesheet" href="{% static 'css/dashnav.css' %}">
 <link rel="stylesheet" href="{% static 'css/editprofile.css' %}">
 <style>
-#editprofile{
-    border-bottom:2px solid purple;
-}
+  #editprofile {
+    border-bottom: 2px solid purple;
+  }
 </style>
 {% endblock head %}
 
 <body>
-{% block everything %}
+  {% block everything %}
 
 
 
 
 
-<form  class="form-for-filling-in-other" method="post" action="{% url 'editprofile' %}">
+  <form enctype="multipart/form-data" class="form-for-filling-in-other" method="post" action="{% url 'editprofile'%}">
 
-  {% csrf_token %}
+    {% csrf_token %}
 
 
 
-  {% if messages %}
-  {% for message in messages %}
-      <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
-          {{ message }}
-      </div>
-  {% endfor %}
-{% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
 
 
-  <h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Profile image</h3>      
-  <div class="sociallinks">
+    <h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Profile image</h3>
+    <div class="sociallinks">
 
-              <label class="label">
-             
-                {{profile_form.profileimg}}
-                <span>Select a file</span>
-                
-  
-              </label> <div class="iasdfff-imadf-df-dfimage-prof"><img id="output" width="300" src="{{st.profileimg}}"></div>
-              <button id="reset" class="label">Remove Image</button>
-              <br>
-  </div>
+      <label class="label">
 
+        {{form.profileimg}}
+        <span>Select a file</span>
 
 
+      </label>
+      <div class="iasdfff-imadf-df-dfimage-prof"><img id="output" width="300" src="{{profile.profileimg.src}}"></div>
+      <button id="reset" class="label">Remove Image</button>
+      <br>
+    </div>
 
-  
 
-  <h3 style="border-bottom: 1px solid silver;margin-bottom:40px ;">Basic</h3>      
-  <div class="sociallinks">
-  
 
 
-<label>Country</label><br>
-{{profile_form.country}}<br>
 
 
-<label>Website</label><br>
-{{profile_form.website}}<br>
+    <h3 style="border-bottom: 1px solid silver;margin-bottom:40px ;">Basic</h3>
+    <div class="sociallinks">
 
 
-<label>Bio</label><br>
-{{profile_form.bio}}<br>
-<br>
-</div>
 
+      <label>Country</label><br>
+      {{form.country}}<br>
 
 
+      <label>Website</label><br>
+      {{form.website}}<br>
 
 
+      <label>Bio</label><br>
+      {{form.bio}}<br>
+      <br>
+    </div>
 
 
 
 
- 
 
 
 
-<h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Social links</h3>      
-<div class="sociallinks">
-<label>Linkedin Profile</label><br>
-{{profile_form.linkedin}}<br>
 
-<label>Istagram</label><br>
-{{profile_form.istagram}}<br>
 
-<label>Facebook</label><br>
-{{profile_form.facebook}}<br>
 
-<label>Twitter</label><br>
-{{profile_form.twitter}}<br>
-</div>
 
 
 
+    <h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Social links</h3>
+    <div class="sociallinks">
+      <label>Linkedin Profile</label><br>
+      {{form.linkedin}}<br>
 
+      <label>Istagram</label><br>
+      {{form.istagram}}<br>
 
+      <label>Facebook</label><br>
+      {{form.facebook}}<br>
 
+      <label>Twitter</label><br>
+      {{form.twitter}}<br>
+    </div>
 
 
 
 
-</div>
 
 
 
 
 
 
+    </div>
 
 
 
@@ -130,53 +125,61 @@
 
 
 
-<button class="savebutton" style="margin-left:50px;">Save</button>  
-      </form>
 
-<form>
 
-  <h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Other</h3>      
-<div class="sociallinks">
-  <label>Fullname</label><br>
-<input type="text" class="imo-pan" value="{{firstname}} {{lastname}}" name="fullname"><br>
 
-  <label>Your Email</label><br>
-  <input type="email" class="imo-pan" value='{{email}}' name="email"><br><br>
 
 
-  <p><input type="checkbox"> <b> Allow</b> us to send you Recommended campaigns,  exclusive discounts,  and exciting announcements,  Updates from campaigns you've supported,  Replies to your comments,    Surveys to help us improve </p>
 
-  <p><input type="checkbox">  <b>Make</b> this email public.                 <b>Note</b>(The email address is not made public )</p>
-  <button class="savebutton">Update</button><br><br><br>
-</div>
+    <button class="savebutton" style="margin-left:50px;">Save</button>
+  </form>
 
+  <form>
 
-</form>
+    <h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Other</h3>
+    <div class="sociallinks">
+      <label>Fullname</label><br>
+      <input type="text" class="imo-pan" value="{{firstname}} {{lastname}}" name="fullname"><br>
 
+      <label>Your Email</label><br>
+      <input type="email" class="imo-pan" value='{{email}}' name="email"><br><br>
 
 
+      <p><input type="checkbox"> <b> Allow</b> us to send you Recommended campaigns, exclusive discounts, and exciting
+        announcements, Updates from campaigns you've supported, Replies to your comments, Surveys to help us improve
+      </p>
 
+      <p><input type="checkbox"> <b>Make</b> this email public. <b>Note</b>(The email address is not made public )</p>
+      <button class="savebutton">Update</button><br><br><br>
+    </div>
 
 
+  </form>
 
-      <script>
-        var loadFile = function(event) {
-          var image = document.getElementById('output');
-          var bo=document.getElementById('booo')
-          image.src = URL.createObjectURL(event.target.files[0]);
-        
-            bo.display="none"
-      
-        };
-        </script>
 
-<script type="text/javascript">
-    document.getElementById('output').onclick= function() {
-        var field= document.getElementById('field');
-        field.value= field.defaultValue;
+
+
+
+
+
+  <script>
+    var loadFile = function (event) {
+      var image = document.getElementById('output');
+      var bo = document.getElementById('booo')
+      image.src = URL.createObjectURL(event.target.files[0]);
+
+      bo.display = "none"
+
     };
-</script>
+  </script>
+
+  <script type="text/javascript">
+    document.getElementById('output').onclick = function () {
+      var field = document.getElementById('field');
+      field.value = field.defaultValue;
+    };
+  </script>
 
 
 
-{% endblock %}
+  {% endblock %}

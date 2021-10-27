@@ -14,42 +14,41 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/dashnav.css' %}">
 <style>
-.timo{
-position:fixed;
-color:grey;
-top:50%;
-text-align: center;
-width:100%;
-z-index: -1;
-}
+  .timo {
+    position: fixed;
+    color: grey;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    z-index: -1;
+  }
 
-#campaigns{
-  border-bottom: 3px solid purple;
-
-}
-
-@media (max-width:1000px) {
-  .timo{
-    font-size: 20px;
-    width:100%;
+  #campaigns {
+    border-bottom: 3px solid purple;
 
   }
-}
 
-.c-button{
-background-color: purple;
-padding-top:10px;
-padding-bottom:10px ;
-text-align: center;
-width:300px;
-border:none;
-border-radius: 5px;
-position: absolute;
-bottom: 50px;
-left: 50%;
-transform: translate(-50%, -50%)
-}
+  @media (max-width:1000px) {
+    .timo {
+      font-size: 20px;
+      width: 100%;
 
+    }
+  }
+
+  .c-button {
+    background-color: purple;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
 </style>
 
 {% endblock head %}
@@ -58,13 +57,18 @@ transform: translate(-50%, -50%)
 
 
   {% block everything %}
-<h2 class="timo">You don't have any campaigns yet</h2>
+  {% if campaigns%}
+  {%for campaign in campaigns%}
+  <p>{{campaign.websiteURL}}</p>
+  {% endfor%}
+  {% else%}
+  <h2 class="timo">You don't have any campaigns yet</h2>
+  {% endif %}
 
 
-  <a style="color:white;"href="{% url 'createcampaign' %}"  target="_blank" rel="noreferrer noopener" >
-<button class="c-button">CREATE CAMPAIGN</button></a>
-<br><br><br><br><br><br><br>
 
-{% endblock %}
+  <a style="color:white;" href="{% url 'createcampaign' %}" target="_blank" rel="noreferrer noopener">
+    <button class="c-button">CREATE CAMPAIGN</button></a>
+  <br><br><br><br><br><br><br>
 
-
+  {% endblock %}

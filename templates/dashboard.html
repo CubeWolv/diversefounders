@@ -14,130 +14,136 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/dashnav.css' %}">
 <style>
-#dashboardlink{
-    border-bottom:2px solid purple;
-}
+  #dashboardlink {
+    border-bottom: 2px solid purple;
+  }
 
-.footer-100{
-  float:right;
-  position: relative;
-  left:50%;
-  transform: translate(-50%,-50%);
-}
+  .footer-100 {
+    float: right;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.imgprofileshite{
+  .imgprofileshite {
 
-  margin-top:10px;
-  border:1px solid grey;
-  border-radius:100%;
-}
+    margin-top: 10px;
+    border: 1px solid grey;
+    border-radius: 100%;
+  }
 
-.image-profile-pl-u{
-  margin-left:5%;
-  width:30%;
-  float:left;
-}
+  .image-profile-pl-u {
+    margin-left: 5%;
+    width: 30%;
+    float: left;
+  }
 
-.Fullname-field{
-  text-align: center;
-}
+  .Fullname-field {
+    text-align: center;
+  }
 
-.about-the-person{
-  float: right;
-  margin-right:100px;
-  width:40%;
-}
+  .about-the-person {
+    float: right;
+    margin-right: 100px;
+    width: 40%;
+  }
 
-.campaigns-div{
-  border:1px solid silver;
-  height: 100px;
-}
+  .campaigns-div {
+    border: 1px solid silver;
+    height: 100px;
+  }
 
-#adsfsdfjj-ds-fsd{
-margin-top:30px;
-}
+  #adsfsdfjj-ds-fsd {
+    margin-top: 30px;
+  }
 
-.name-of-the-things-f-c{
-  text-align: center;
-}
-
-
-.gihiad-gbi{
-  margin-left:10px;
-  margin-top:10px;
-  font-size:12px;
-}
-
-@media(max-width:1020px){
-  .image-profile-pl-u{
-  width:100%;
-  float:none;
-  margin-left:0%;
-}
-
-.imgprofileshite{
-
-  margin-left:0px;
-  margin-top:10px;
-}
-
-.about-the-person{
-  float: none;
-  margin-right:100px;
-  width:100%;
-}
+  .name-of-the-things-f-c {
+    text-align: center;
+  }
 
 
-}
+  .gihiad-gbi {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
 
+  @media(max-width:1020px) {
+    .image-profile-pl-u {
+      width: 100%;
+      float: none;
+      margin-left: 0%;
+    }
+
+    .imgprofileshite {
+
+      margin-left: 0px;
+      margin-top: 10px;
+    }
+
+    .about-the-person {
+      float: none;
+      margin-right: 100px;
+      width: 100%;
+    }
+
+
+  }
 </style>
 {% endblock head %}
 
 <body>
-{% block everything %}
+  {% block everything %}
 
-<div class="sdd">
+  <div class="sdd">
 
-<div class="all-divs">
-<center>
-<div class="image-profile-pl-u">
-<img src="{% static 'images/icon.png' %}" width="280px" class="imgprofileshite">
-{% if user.is_authenticated %}
-    <h3 class="Fullname-field"><b>{{firstname}} {{lastname}}</b></h3>
-{% else %}
-    <p>Welcome, new user. Please log in.</p>
-{% endif %}
+    <div class="all-divs">
+      <div class="image-profile-pl-u">
+        <img src="{{profile.profileimg.url}}" width="280px" class="imgprofileshite">
+        {% if user.is_authenticated %}
+        <h3 class="Fullname-field"><b>{{firstname}} {{lastname}}</b></h3>
+        {% else %}
+        <p>Welcome, new user. Please log in.</p>
+        {% endif %}
 
-</div>
-</div>
+      </div>
+    </div>
 
-<div class="about-the-person">
-<h6 style="margin-left:10px"><i class="fa fa-bar-chart" aria-hidden="true"></i> Status</h6>
-<div class="campaigns-div" style="height: 200px;">
-<p class="gihiad-gbi">Campaigns</p>
-<p class="name-of-the-things-f-c">You do not have any campaigns</p>
-</div>
+    <div class="about-the-person">
+      <h6 style="margin-left:10px"><i class="fa fa-bar-chart" aria-hidden="true"></i> Status</h6>
+      <div class="campaigns-div" style="height: 200px;">
+        <p class="gihiad-gbi">Campaigns</p>
+        {% if number == 0 %} <p class="name-of-the-things-f-c">You do not have any campaigns</p>
+        {% else %}
+        <p class="name-of-the-things-f-c">{{number}}</p>
+        {% endif %}
+      </div>
 
-<div class="campaigns-div" id="adsfsdfjj-ds-fsd">
-  <p class="gihiad-gbi">Contributions / Funded</p>
-  <p class="name-of-the-things-f-c">You have not funded any campaigns yet</p>
+      <div class="campaigns-div" id="adsfsdfjj-ds-fsd">
+        <p class="gihiad-gbi">Contributions / Funded</p>
+        <p class="name-of-the-things-f-c">You have not funded any campaigns yet</p>
+      </div>
+
+      <div class="campaigns-div" id="adsfsdfjj-ds-fsd">
+        <p class="gihiad-gbi">Accounts</p>
+        <!-- <p class="name-of-the-things-f-c">Go to <a href="{% url 'editprofile' %}" style="color: rgb(255, 140, 0);">Edit
+            profile</a> and add your Social accouts</p> -->
+        <a href="{{profile.facebook}}">Facebook</a>
+        <a href="{{profile.istagram}}">Instagram</a>
+        <a href="{{profile.twitter}}">Twitter</a>
+        <a href="{{profile.linkedin}}">Linkedin</a>
+      </div>
+
+    </div>
+
+
+
+
+
+
   </div>
 
-  <div class="campaigns-div" id="adsfsdfjj-ds-fsd">
-    <p class="gihiad-gbi">Accounts</p>
-    <p class="name-of-the-things-f-c">Go to <a href="{% url 'editprofile' %}" style="color: rgb(255, 140, 0);">Edit profile</a> and add your Social accouts</p>
-    </div>
-
-    </div>
-
-
-
-
-
-
-</div>
-
-</div>
+  </div>
 
 
 
@@ -145,4 +151,4 @@ margin-top:30px;
 
 
 
-{% endblock %}
+  {% endblock %}

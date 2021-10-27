@@ -11,43 +11,39 @@ from .views import (
     fundingprofile,
     campaigns,
     createcampaign,
-    campaignview, 
+    campaignview,
     campaignsettings,
     camp,
     pitch,
     faq,
     funding,
-    rewards, 
-    home,
-    editprofile,
+    rewards,
+    home
 )
 
 # Preload files
 
- 
+
 urlpatterns = [
-    path('',home, name='home'),
-    path('dashboard/editprofile/', editprofile.as_view(), name='editprofile'),
+    path('', home, name='home'), 
+    path('dashboard/editprofile/',
+         editprofile, name='editprofile'),
     path('dashboard/', dashboard, name='dashboard'),
-    path('projects/',projects, name='projects'),
-    path('dashboard/fundingprofile/',fundingprofile, name='fundingprofile'),
-    path('dashboard/yourcampaigns/',campaigns, name='campaigns'),
-    path('createcampaign/',createcampaign, name='createcampaign'),
+    path('projects/', projects, name='projects'),
+    path('dashboard/fundingprofile/', fundingprofile, name='fundingprofile'),
+    path('dashboard/yourcampaigns/', campaigns, name='campaigns'),
+    path('createcampaign/', createcampaign, name='createcampaign'),
     path('campaignview/', campaignview, name='campaignview'),
-    path('createcampaign/campaignsettings/', campaignsettings , name="campaignsettings"),
-    path('createcampaign/campaignsettings/campaign/',camp, name='camp'),
-    path("createcampaign/campaignsettings/pitch",pitch, name="pitch"),
-    path('createcampaign/campaignsettings/funding/',funding,name='funding'),
-    path('createcampaign/campaignsettings/rewards/', rewards, name='rewards'),
-    path('createcampaign/campaignsettings/FAQ/',faq, name="faq"),
+    path('createcampaign/campaignsettings/',
+         campaignsettings, name="campaignsettings"),
+    path('createcampaign/campaignsettings/campaign/<id>/', camp, name='camp'),
+    path("createcampaign/campaignsettings/pitch/<id>/", pitch, name="pitch"),
+    path('createcampaign/campaignsettings/funding/<id>/', funding, name='funding'),
+    path('createcampaign/campaignsettings/rewards/<id>/', rewards, name='rewards'),
+    path('createcampaign/campaignsettings/FAQ/<id>/', faq, name="faq"),
 ]
-  
-
-
-
-
 
 
 if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL,
-                              document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

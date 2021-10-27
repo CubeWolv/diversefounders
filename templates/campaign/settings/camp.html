@@ -3,44 +3,49 @@
 
 
 {% block settingsforc %}
-<form class="form-for-this">
+<form class="form-for-this" action="{% url 'camp' campaign.id %}" method="post">
+  {% csrf_token%}
+
+  <label>Campaign Name</label><br>
+  <input type="text" name="campname"><br>
 
 
-<label>Campaign Name</label><br>
-<input type="text"><br>
+  <label>Campaign Tagline</label><br>
+  <textarea cols="68" rows="10" name="camptag"></textarea><br>
+
+  <label>Category</label><br>
+  <select class="coutry-staff" name="category">
+    <option value='Games'>Games</option>
+    <option value='Design'>Design</option>
+    <option value='Fashion'>Fashion</option>
+    <option value='Art'>Art</option>
+    <option value='Comics'>Comics</option>
+    <option value='Tech'>Tech</option>
+    <option value='Music'>Music</option>
+    <option value='Food'>Food</option>
+    <option value='Film'>Film</option>
+    <option value='Crafts'>Crafts</option>
+    <option value='Photography'>Photography</option>
+  </select><br>
+
+  <label>Start date</label><br>
+  <input type="date" name="startdate"><br>
+
+  <label>End date</label><br>
+  <input type="date" name="enddate"><br>
 
 
-<label>Campaign Tagline</label><br>
-<textarea cols="68" rows="10"></textarea><br>
 
-<label>Category</label><br>
-<select class="coutry-staff">
-    <option value="AF">Afghanistan</option>
-    <option value="AX">Åland Islands</option>
-    <option value="AL">Albania</option>
-    <option value="DZ">Algeria</option>
-    <option value="AS">American Samoa</option>
-    <option value="AD">Andorra</option>
-    <option value="AO">Angola</option>
-</select><br>
+  <!-- <button style="margin-top:1em; margin-bottom:2em;" class="save-as-draf1">Submit</button> -->
+  {% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
+  {% block thebuttons %}
+  <div class="div-the-buttons-for-saving">
+    <button class="save-as-draf1">Save as draft <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+    <a href="{% url 'pitch' campaign.id %}" class="boton">Continue editing <i class="fa fa-long-arrow-right"
+        aria-hidden="true"></i></a>
 
-<label>Start data</label><br>
-<input type="date"><br>
-
-<label>End data</label><br>
-<input type="date"><br>
-
-
-
-
-{% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
-{% block thebuttons %}
-<div class="div-the-buttons-for-saving">
-    <button class="save-as-draf1">Save as draft     <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-  <a href="{% url 'pitch' %}" class="boton">Continue editing      <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-
-    </div>
-{% endblock thebuttons %}
+  </div>
+  {% endblock thebuttons %}
 
 
 

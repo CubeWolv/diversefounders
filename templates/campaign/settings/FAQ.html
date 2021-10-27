@@ -3,10 +3,43 @@
 
 
 {% block settingsforc %}
-<form class="form-for-this">
 
 
 
+<form class="form-for-this" method="post" action="{% url 'faq' campaign.id%}">
+  {% csrf_token%}
+
+
+
+  <label style="margin-top: 100px;">FAQ</label>
+
+  <p style="margin-top:20px;font-size:16px;">Add Frequently Asked Questions</p></b>
+
+  <div class="yo-text-area-editor">
+    <textarea id="get-text-area-for-e" name="faq">
+              <br>
+              Frequently Asked Questions:
+      
+      <li>Please, replace this example content</li>
+            </textarea>
+
+
+  </div>
+
+
+
+
+
+
+  {% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
+  {% block thebuttons %}
+  <div class="div-the-buttons-for-saving">
+    <button class="save-as-draf1">Save as draft <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+    <a href="" class="boton">Save & Preview <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+  </div>
+  {% endblock thebuttons %}
 
 </form>
+
 {% endblock %}

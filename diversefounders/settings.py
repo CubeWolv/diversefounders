@@ -83,12 +83,19 @@ WSGI_APPLICATION = 'diversefounders.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE':   'django.db.backends.mysql',
+#         'NAME':     'diversefounders',
+#         'USER':     'root',
+#         'PASSWORD': 'Imranabdup42',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE':   'django.db.backends.mysql',
-        'NAME':     'diversefounders',
-        'USER':     'root',
-        'PASSWORD': 'Imranabdup42',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -137,15 +144,13 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
 
 
-
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
@@ -154,6 +159,6 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SESSION_EXPIRE_SECONDS =14400
+SESSION_EXPIRE_SECONDS = 14400
 
-APPEND_SLASH=False
+APPEND_SLASH = False

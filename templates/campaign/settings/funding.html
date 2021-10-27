@@ -3,15 +3,28 @@
 
 
 {% block settingsforc %}
-<form class="form-for-this">
+<form class="form-for-this" method="post" action="{% url 'funding' campaign.id %}">
+    {% csrf_token%}
+    <h3>Funding</h3>
+    <label>Campaign Goal </label><br>
+    <input type="number" value="500.00" name="goal"><br>
 
-<h3>Funding</h3>
-<label>Campaign Goal </label><br>
-<input type="number" value="500.00"><br>
+    <label>Connect your accounts</label>
+
+    <p>PayPal</p><br>
 
 
+    <p>Strip</p><br>
 
+    {% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
+    {% block thebuttons %}
+    <div class="div-the-buttons-for-saving">
+        <button class="save-as-draf1">Save as draft <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <a href="{% url 'rewards' campaign.id %}" class="boton">Continue editing <i class="fa fa-long-arrow-right"
+                aria-hidden="true"></i></a>
 
+    </div>
+    {% endblock thebuttons %}
 
 </form>
 {% endblock %}

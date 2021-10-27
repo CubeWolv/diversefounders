@@ -4,14 +4,11 @@
 
 {% block settingsforc %}
 <h2>Pitch</h2>
-<form class="form-for-this">
+<form class="form-for-this" method="post" enctype="multipart/form-data" action="{% url 'pitch' campaign.id %}">
+  {% csrf_token%}
 
-
-<label>Campaign Name</label><br>
-<input type="text"><br>
-
-
-
+  <label>Campaign Name</label><br>
+  <input type="text" name="pitchCampName"><br>
 
 
 
@@ -20,35 +17,85 @@
 
 
 
-<label class="label">
-             
-  <input type="image"     onchange='loadFile(event)' name='profileimage'>
-  <span>Select a file</span>
-  
-
-</label> <div class="iasdfff-imadf-df-dfimage-prof"><img id="output" width="300" src="{{st.profileimg}}"></div>
-<button id="reset" class="label">Remove Image</button><br>
 
 
 
+  <label class="label">
+    <input type="file" required onchange="loadFile(event)" name="profileimage" value="{{st.profileimg.url}}"
+      accept="image/*" />
+    <span>Select a file</span>
 
 
-<style>
-  
-  .iasdfff-imadf-df-dfimage-prof{
-      border:1px solid rgb(90, 89, 89);
-      width:300px;
-      height: 300px;
-      border-radius: 4px;
-  }
+  </label>
+  <div class="iasdfff-imadf-df-dfimage-prof"><img id="output" width="300" src="{{st.profileimg}}"></div>
+  <br>
 
-  @media(max-width:1020px){
-    .iasdfff-imadf-df-dfimage-prof{
-        margin-left:15px;
+  <script>
+    var loadFile = function (event) {
+      var image = document.getElementById('output');
+      var bo = document.getElementById('booo')
+      image.src = URL.createObjectURL(event.target.files[0]);
+
+      bo.display = "none"
+
+    };
+  </script>
+
+  <script type="text/javascript">
+    document.getElementById('output').onclick = function () {
+      var field = document.getElementById('field');
+      field.value = field.defaultValue;
+    };
+  </script>
+
+
+
+
+  <style>
+    label.label input[type="file"] {
+      position: absolute;
+      top: -1000px;
     }
 
-  }
-</style>
+    .label {
+      cursor: pointer;
+      border: none;
+      width: 300px;
+      border-radius: 3px;
+      padding-top: 10px;
+      text-align: center;
+      padding-bottom: 10px;
+      color: black;
+      font-size: 15px;
+      background: #dddddd;
+      display: inline-block;
+    }
+
+
+
+    .label:invalid+span {
+      color: #000000;
+    }
+
+    .label:valid+span {
+      color: #ffffff;
+    }
+
+
+    .iasdfff-imadf-df-dfimage-prof {
+      border: 1px solid rgb(90, 89, 89);
+      width: 300px;
+      height: 300px;
+      border-radius: 4px;
+    }
+
+    @media(max-width:1020px) {
+      .iasdfff-imadf-df-dfimage-prof {
+        margin-left: 15px;
+      }
+
+    }
+  </style>
 
 
 
@@ -57,11 +104,11 @@
 
 
 
- 
-<label>Enter a YouTube or Vimeo URL for your video</label><br>
+
+  <label>Enter a YouTube or Vimeo URL for your video</label><br>
 
   <p>Add a short video (2-3 mins. make sure the video is set to public</video></p>
-<input type="url"><br>
+  <input type="url" name="vidurl"><br>
 
 
 
@@ -69,12 +116,15 @@
 
 
 
-<label style="margin-top: 100px;">Campaign pitch</label>
+  <label style="margin-top: 100px;">Campaign pitch</label>
 
-<p style="margin-top:20px;font-size:16px;">This is where you get detailed about your campaign, your team, your goals, and of course, your product or service.<br> Tell funders why you are raising money.<br> We recommend keeping it as short and sweet as possible. <br>Use images mixed in with text to tell your story.<br> We recomend images that are a minimum of 1000 pixels wide so they can span the width of your campaign pitch section.</b>
+  <p style="margin-top:20px;font-size:16px;">This is where you get detailed about your campaign, your team, your goals,
+    and of course, your product or service.<br> Tell funders why you are raising money.<br> We recommend keeping it as
+    short and sweet as possible. <br>Use images mixed in with text to tell your story.<br> We recomend images that are a
+    minimum of 1000 pixels wide so they can span the width of your campaign pitch section.</b>
 
-<div class="yo-text-area-editor">
-  <textarea id="get-text-area-for-e">
+  <div class="yo-text-area-editor">
+    <textarea id="get-text-area-for-e" name="campaignPitch">
     <br>
     <li>What is the mission of your company or project?</li>
     <li>Describe the problem you are solving.</li>
@@ -87,7 +137,7 @@
   </textarea>
 
 
-</div>
+  </div>
 
 
 
@@ -101,15 +151,16 @@
 
 
 
-{% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
-{% block thebuttons %}
-<div class="div-the-buttons-for-saving">
-    <button class="save-as-draf1">Save as draft     <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-  <a href="{% url 'funding' %}" class="boton">Continue editing      <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+  {% include 'campaign/settings/button.html' with urlforbutton=" campaign " %}
+  {% block thebuttons %}
+  <div class="div-the-buttons-for-saving">
+    <button class="save-as-draf1">Save as draft <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+    <a href="{% url 'funding' campaign.id %}" class="boton">Continue editing <i class="fa fa-long-arrow-right"
+        aria-hidden="true"></i></a>
 
-    </div>
-{% endblock thebuttons %}
-
+  </div>
+  {% endblock thebuttons %}
+</form>
 
 
 

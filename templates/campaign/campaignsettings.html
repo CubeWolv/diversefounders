@@ -4,171 +4,198 @@
 {% block capcontent %}
 
 <style>
-    .i-dont-know{
-      height: 100%;
+    .i-dont-know {
+        height: 100%;
     }
 
-    .div-1111{
-        width:18vw;
+    .div-1111 {
+        width: 18vw;
         background-color: rgb(255, 255, 255);
         height: 30%;
-        margin-left:100px;
+        margin-left: 100px;
         border-radius: 5px;
-        border:1px solid silver;
-        float:left;
-        margin-top:30px;
+        border: 1px solid silver;
+        float: left;
+        margin-top: 30px;
     }
 
-    .fish{
-        color:red;
+    .fish {
+        color: red;
     }
 
-    .div-1111 a{
-       list-style: none;
-       border-bottom:1px solid silver;
-       display:list-item;
-       color:rgb(0, 0, 0);
-        color:rgb(51, 51, 51);
+    input:focus {
+        transition: 0.5s;
+        border: 1px solid rgb(45, 113, 180) !important;
+        box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+        -moz-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+        -webkit-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+    }
+
+    input:focus {
+        outline-offset: 0px !important;
+        outline: none !important;
+    }
+
+
+
+    textarea:focus {
+        transition: 0.5s;
+        border: 1px solid rgb(45, 113, 180) !important;
+        box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+        -moz-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+        -webkit-box-shadow: 0 0 3px rgb(65, 131, 196) !important;
+    }
+
+    textarea:focus {
+        outline-offset: 0px !important;
+        outline: none !important;
+    }
+
+    .div-1111 a {
         list-style: none;
-        padding-left:40px;
-        padding-top:13px;
-        padding-bottom:13px;
-        width:100%;
+        border-bottom: 1px solid silver;
+        display: list-item;
+        color: rgb(0, 0, 0);
+        color: rgb(51, 51, 51);
+        list-style: none;
+        padding-left: 40px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        width: 100%;
     }
 
-    .div-1111 a:hover{
-        color:silver;
+    .div-1111 a:hover {
+        color: silver;
         background-color: rgb(247, 247, 247);
     }
 
-    .div-1111 li{
+    .div-1111 li {
         list-style: none;
-        padding-left:35px;
-        padding-bottom:10px;
-        padding-top:5px;
-        border-bottom:1px solid grey;
-        color:rgb(0, 156, 156)
+        padding-left: 35px;
+        padding-bottom: 10px;
+        padding-top: 5px;
+        border-bottom: 1px solid grey;
+        color: rgb(0, 156, 156)
     }
 
 
-    .the-other-settings-for-the-campains-u{
-        float:right
+    .the-other-settings-for-the-campains-u {
+        float: right
     }
 
-    @media(max-width:1090px){
-    .the-other-settings-for-the-campains-u{
-        float: right;
-    }
+    @media(max-width:1090px) {
+        .the-other-settings-for-the-campains-u {
+            float: right;
+        }
     }
 
-    @media(max-width:900px){
-        .div-1111{
-            margin-left:0px;
+    @media(max-width:900px) {
+        .div-1111 {
+            margin-left: 0px;
             float: left;
-            width:85%;
-            position:relative;
-            left:50%;
-            transform: translate(-50%,-0%);
+            width: 85%;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, -0%);
         }
-        .the-other-settings-for-the-campains-u{
-            margin-top:10vw;
-            float:right;
-            width:95%;
-            position:relative;
-            left:50%;
-            transform: translate(-50%,-0%);
-        }
-    }
 
-    @media(max-width:500px){
-        .div-1111{
-            width:90%;
+        .the-other-settings-for-the-campains-u {
+            margin-top: 10vw;
+            float: right;
+            width: 95%;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, -0%);
         }
     }
 
-    
+    @media(max-width:500px) {
+        .div-1111 {
+            width: 90%;
+        }
+    }
 
-    .form-for-this input{
+
+
+    .form-for-this input {
         width: 500px;
         margin-right: 30vw;
-        padding-top:8px;
-        padding-bottom:8px;
-        padding-left:10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 10px;
         border-radius: 3px;
-        border:1px solid grey
+        border: 1px solid grey
     }
 
-    .form-for-this label{
-        margin-top:5%;
+    .form-for-this label {
+        margin-top: 5%;
     }
 
-    .coutry-staff{
-        margin-top:5%;
+    .coutry-staff {
+        margin-top: 5%;
         width: 500px;
         margin-right: 30vw;
-        padding-top:8px;
-        padding-bottom:8px;
-        padding-left:10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 10px;
         border-radius: 3px;
-        border:1px solid grey
+        border: 1px solid grey
     }
 
-    .country{
-        position:absolute
+    .country {
+        position: absolute
     }
 
-    .div-country{
-        width:300px;
-    }
-
-
-
-    @media(max-width:900px){
-        .form-for-this input{
-        width: 90%;
-        margin-right: 0vw;
-    }
-
-    .form-for-this label{
-        margin-top:8%;
-    }
-
-    .coutry-staff{
-        width: 95%;
-        margin-right: 0vw;
-    
-    }
-
-    .country{
-        position:relative;
-    }
-
-    .div-country{
-        width:90%;
-        margin:0px;
-        padding:0px;
-    }
+    .div-country {
+        width: 300px;
     }
 
 
+
+    @media(max-width:900px) {
+        .form-for-this input {
+            width: 90%;
+            margin-right: 0vw;
+        }
+
+        .form-for-this label {
+            margin-top: 8%;
+        }
+
+        .coutry-staff {
+            width: 95%;
+            margin-right: 0vw;
+
+        }
+
+        .country {
+            position: relative;
+        }
+
+        .div-country {
+            width: 90%;
+            margin: 0px;
+            padding: 0px;
+        }
+    }
 </style>
 
 <div class="div-1111">
     <li style="margin-top:5px;border-top:transparent;">Campaign settings</li>
     <a href="{% url 'campaignsettings' %}">Basic Information</a>
-    <a href="{% url 'camp' %}">Campaign</a>
-    <a href="{% url 'pitch' %}">Pitch</a>
-    <a href="{% url 'funding' %}">Funding</a>
-    <a href="{% url 'rewards' %}">Rewards</a>
-    <a href="{% url 'faq' %}" style="border-bottom:transparent">FAQ</a>
+    <a href="">Campaign</a>
+    <a href="">Pitch</a>
+    <a href="">Funding</a>
+    <a href="">Rewards</a>
+    <a href="" style="border-bottom:transparent" id="faq">FAQ</a>
 </div>
 
 
 
 
 <div class="the-other-settings-for-the-campains-u">
-{% block settingsforc %}
-{% endblock %}
+    {% block settingsforc %}
+    {% endblock %}
 </div>
 
 
