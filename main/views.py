@@ -59,7 +59,7 @@ def home(request):
 
 @login_required
 def fundingprofile(request):
-    return render(request, "/fundingprofile.html")
+    return render(request, "fundingprofile.html")
 
 
 @login_required
