@@ -50,7 +50,7 @@ def editprofile(request):
             obj.save()
             print(obj.bio)
         return redirect("editprofile")
-    return render(request, "Profiles/editprofile.html", {"form": profile_form, "profile": obj})
+    return render(request, "editprofile.html", {"form": profile_form, "profile": obj})
 
 
 def home(request):
@@ -59,7 +59,7 @@ def home(request):
 
 @login_required
 def fundingprofile(request):
-    return render(request, "profiles/fundingprofile.html")
+    return render(request, "/fundingprofile.html")
 
 
 @login_required
