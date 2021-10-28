@@ -1,0 +1,74 @@
+{% extends "dashnav.html" %}
+{% load static %}
+{% block head %}
+<title>{{request.user}} | Dashboard</title>
+<meta name="description" content="Affiliate marketing">
+<meta charset="UTF">
+<meta name="author" content="Imran Abdu">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+<meta http-equiv="refresh" content="216000">
+<link rel='icon' href="{% static 'images/icon.png' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/dashnav.css' %}">
+<style>
+    .timo {
+        position: fixed;
+        color: grey;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        z-index: -1;
+    }
+
+    #campaigns {
+        border-bottom: 3px solid purple;
+
+    }
+
+    @media (max-width:1000px) {
+        .timo {
+            font-size: 20px;
+            width: 100%;
+
+        }
+    }
+
+    .c-button {
+        background-color: purple;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        width: 300px;
+        border: none;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+</style>
+
+{% endblock head %}
+
+<body>
+
+
+    {% block everything %}
+    {% if campaigns%}
+    {%for campaign in campaigns%}
+    <p>{{campaign.websiteURL}}</p>
+    {% endfor%}
+    {% else%}
+    <h2 class="timo">You don't have any campaigns yet</h2>
+    {% endif %}
+
+
+
+    <a style="color:white;" href="{% url 'createcampaign' %}" target="_blank" rel="noreferrer noopener">
+        <button class="c-button">CREATE CAMPAIGN</button></a>
+    <br><br><br><br><br><br><br>
+
+    {% endblock %}

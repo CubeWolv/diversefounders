@@ -65,7 +65,7 @@ def fundingprofile(request):
 @login_required
 def campaigns(request):
     campaigns = Campaign.objects.filter(owner=request.user)
-    return render(request, 'profiles/campaign.html', {"campaigns": campaigns})
+    return render(request, 'campaign.html', {"campaigns": campaigns})
 
 
 @login_required
