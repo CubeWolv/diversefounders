@@ -1,0 +1,307 @@
+{% extends "nav.html" %}
+{% block head %}
+
+<head>
+  {% if campaigns%}
+  {%for campaign in campaigns%}
+  <title>{{campaign.campaignName}} | Diversefounders</title>
+  {% endfor%}
+  {% else%}
+  <title><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> No prject Title</title>
+  {% endif %}
+  <meta name="description" content="Affiliate marketing">
+  <meta charset="UTF">
+  <meta name="author" content="Imran Abdu">
+  {% load static %}
+  <link rel='icon' href="{% static 'images/icon.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+  <meta http-equiv="refresh" content="216000">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href="{% static 'css/campaignview.css' %}">
+</head>
+{% endblock head %}
+
+<body>
+  {% block content %}
+  <style>
+    .first-heading-d{
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .first-heading-d h3{
+      font-size: 16px;
+      font-weight: lighter;
+      font-family: "Poppins",sans-serif;
+    }
+
+    .vid-df-campaign-tt{
+      margin-left:70px;
+      margin-top:40px;
+      float: left;
+    }
+
+    .vid-df-campaign-tt iframe{
+      border: none;
+    }
+
+    .Profile-theme-df-f-t-et{
+   
+     float: right;
+     width:38%;
+     margin-top:30px;
+     
+    }
+
+    .Profile-theme-df-f-t-et progress{
+      width:100%;
+      text-align: center;
+    }
+
+    .Profile-theme-df-f-t-et button{
+      border: none;
+      width:200px;
+      background-color:darkorange;
+      padding:12px;
+      font-size: 20px;
+      border-radius: 4px;
+    }
+    
+    .Profile-theme-df-f-t-et button:hover{
+      background-color: rgb(255, 115, 0);
+    }
+
+
+
+
+
+     /*Tool tip*/
+    .Profile-theme-df-f-t-et i{
+       font-size: 20px;
+        margin-left:40px;
+    }
+
+    #bookmark-save {
+      cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+#bookmark-save:hover{
+  color:darkorange;
+}
+
+#bookmark-save .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -40px;
+}
+
+#bookmark-save .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+#bookmark-save:hover .tooltiptext {
+  visibility: visible;
+}
+
+.links-tw-fa-em-shar {
+  margin:0px;
+  margin-top:45px;
+  float: right;
+  margin-right: 20px;
+}
+
+.links-tw-fa-em-shar i{
+  margin-left:10px;
+  font-size: 15px;
+  cursor: pointer;
+
+}
+
+.links-tw-fa-em-shar i:hover{
+    color:silver
+}
+
+
+.days-left{
+  font-family: "Poppins",sans-serif;
+}
+
+.ddddddddd-ddddddddd-ddddddd{
+  display: inline-flex;
+}
+
+.ddddddddd-ddddddddd-ddddddd p{
+  margin-top: 10px;
+  margin-left:20px;
+  background-color: rgb(9, 255, 0);
+  border-radius: 3px;
+  padding:1px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
+/*Pitch*/
+.the-pitch{
+  clear: both;
+  margin-top:550px;
+  padding-top:20px;
+  border-top:1px solid silver;
+  position: sticky;
+}
+
+.the-pitch li{
+  list-style: none;
+  float: left;
+  margin-left:50px;
+    padding-bottom:10px;
+  font-size: 16px;
+  font-family: "Poppins";
+  cursor: pointer;
+}
+
+.the-pitch li:hover{
+  border-bottom: 2px solid grey;
+}
+
+.another-back-button button{
+      border: none;
+      width:150px;
+      margin-top:0px;
+      background-color:darkorange;
+      padding:5px;
+      margin-bottom: 100px;
+      margin-right:40px;
+      font-size: 15px;
+}
+  </style>
+
+
+
+
+{% if campaigns%}
+{%for campaign in campaigns%}
+<div class="first-heading-d">
+<h1>{{campaign.campaignName}}</h1>
+<h3>{{campaign.campaignTagline}}</h3>
+</div>
+
+
+
+  <div>
+<div class="vid-df-campaign-tt">
+  <iframe width="700vh" height="450vh"
+src="{{campaign.vidlink}}">
+</iframe>
+</div>
+
+
+<div class="Profile-theme-df-f-t-et">
+
+
+<div class="ddddddddd-ddddddddd-ddddddd">
+<h4>Funding</h4>
+<p>{{campaign.category}}</p>
+</div>
+
+<div class="the-first-part-df-p-im">
+<img src="{{profile.profileimg.url}}">
+<p class="the-full-name-of-use">By {{campaign.fullname}}</p> 
+<p style="font-weight: bold; margin:5px">{{campaign.country}}</p>
+</div>
+
+
+<h2 style="margin-top:30px;">$2,001</h2>
+<p> <p style="float:left;" class="days-left">pledged of {{campaign.campaignGoal}} goal</p>              <p style="float: right; margin-right:20px" class="days-left">0 backers</p></p>   
+<progress id="file" value="1" max="100"> 32% </progress>
+<p class="days-left">0 days left</p>
+
+
+
+
+
+<button style="margin-top: 30px;">Back it</button>
+
+<div id="bookmark-save" style="margin-top: 30px;">
+<i class="fa fa-bookmark-o" aria-hidden="true" ></i>
+<span class="tooltiptext">Save it for later</span>
+</div>
+
+
+
+<div class="links-tw-fa-em-shar">
+<i class="fa fa-envelope-o" aria-hidden="true"></i>
+<i class="fa fa-facebook" aria-hidden="true"></i>
+<i class="fa fa-twitter" aria-hidden="true"></i>
+<i class="fa fa-share-alt" aria-hidden="true"></i>
+</div>
+
+
+  <p style="font-size: 12px;margin-top:10px;">campaign ends on {{campaign.startdate}}</p>
+</div>
+</div>
+
+</div>
+
+
+<hr>
+
+
+
+<div class="the-pitch">
+  <div>
+<li>Pitch</li>
+<li>FAQ</li>
+<li>UPDATES</li>
+<li>COMMUNITY</li>
+</div>
+
+<div class="another-back-button">
+  <button style="float: right;">Back it</button>
+</div>
+
+</div>
+
+<div style="clear: both;">
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+dfffffffffffff<br>
+dfffffffffffffffff<br>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endfor%}
+{% else%}
+<h2 class="timo">No campaigns</h2>
+{% endif %}
+
+{% endblock %}
+
+
