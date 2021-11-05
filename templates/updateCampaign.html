@@ -1,0 +1,125 @@
+<p style="text-align: center;">UPDATE CAMPAIGN</p>
+<form action="{% url 'campign-update' campaign.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token%}
+    <div style="display: flex; justify-content: center;">
+        <div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="fullname" id="" placeholder="Full Name">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="websiteUrl" id="" placeholder="Website URL">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="country" id="" placeholder="Country">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="address" id="" placeholder="Address">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="city" id="" placeholder="City">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="zipcode" id="" placeholder="Zip Code">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="campaignName" id="" placeholder="Campaign Name">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="campaignTagline" id="" placeholder="Campagin Tagline">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="category" id="" placeholder="Category">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="startdate" id="" placeholder="Start Date">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="enddate" id="" placeholder="End Date">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="pitchCampaignName" id="" placeholder="Campaign Name">
+            </div>
+            <div style="margin: 1em;">
+                <label for="pitch">Pitch File</label>
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="file" name="pitchFile" id="pitch">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="vidlink" id="" placeholder="Video Link. Youtube or Vimeo">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="campaignPitch" id="" placeholder="Campaign Pitch">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="campaignGoal" id="" placeholder="Campaign Goal">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="price" id="" placeholder="Price">
+            </div>
+            <div style="margin: 1em;">
+                <input
+                    style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                    type="text" name="title" id="" placeholder="Title">
+            </div>
+            <var>
+                <div style="margin: 1em;">
+                    <input
+                        style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                        type="text" name="rewardfile" id="" placeholder="Reward File">
+                </div>
+                <div style="margin: 1em;">
+                    <input
+                        style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                        type="text" name="shippingInfo" id="" placeholder="Shipping Info">
+                </div>
+                <div style="margin: 1em;">
+                    <input
+                        style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                        type="text" name="rewarddetails" id="" placeholder="Reward Details">
+                </div>
+                <div style="margin: 1em;">
+                    <input
+                        style="padding: 1em; border: 0px solid transparent; background-color: rgb(228, 222, 222); border-radius: 2px;"
+                        type="text" name="deliverytime" id="" placeholder="Delivery Time">
+                </div>
+                <div>
+                    <input
+                        style="background-color: rgb(233, 128, 0); border: none; width: 200px; padding-left: 15px; padding-top: 17px; padding-bottom: 17px; color: white; padding-right: 15px; margin: 0px; font-size: 1.2em;"
+                        type="submit" name="" id="">
+                </div>
+        </div>
+    </div>
+</form>

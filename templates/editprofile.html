@@ -134,15 +134,15 @@
     <button class="savebutton" style="margin-left:50px;">Save</button>
   </form>
 
-  <form>
-
+  <form method="post" action="{% url 'update-user' %}">
+    {% csrf_token %}
     <h3 style="border-bottom: 1px solid silver;margin-bottom:20px;margin-top:70px;">Other</h3>
     <div class="sociallinks">
       <label>Fullname</label><br>
-      <input type="text" class="imo-pan" value="{{firstname}} {{lastname}}" name="fullname"><br>
+      <input type="text" class="imo-pan" value="{{user.first_name}}" name="fullname"><br>
 
       <label>Your Email</label><br>
-      <input type="email" class="imo-pan" value='{{email}}' name="email"><br><br>
+      <input type="email" class="imo-pan" value='{{user.email}}' name="email"><br><br>
 
 
       <p><input type="checkbox"> <b> Allow</b> us to send you Recommended campaigns, exclusive discounts, and exciting

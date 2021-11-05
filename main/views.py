@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+from django.http import request
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
 from accounts.forms import Profileform, UserForm
 from django.contrib.auth.decorators import login_required
@@ -161,3 +163,19 @@ def funding(request, id):
         campaign.save()
         return redirect("rewards", id=id)
     return render(request, "campaign/settings/funding.html", {"campaign": campaign})
+
+@login_required
+def updateUser(request):
+    if request.method == "POST":
+        user = request.user
+        user.first_name = request.POST.get("fullname")
+        user.email = request.POST.get("email")
+        user.save()
+    return redirect("editprofile")
+
+@login_required
+def updateCampaign(request, id):
+    campaign = get_object_or_404(Campaign, id=id)
+    if request.method == "POST":
+        return redirect("campaigns")
+    return render(request, "updateCampaign.html",{"campaign":campaign})
