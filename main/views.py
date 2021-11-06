@@ -179,3 +179,9 @@ def updateCampaign(request, id):
     if request.method == "POST":
         return redirect("campaigns")
     return render(request, "updateCampaign.html",{"campaign":campaign})
+
+@login_required
+def deleteCampaign(request,id):
+    campaign = get_object_or_404(Campaign, id=id)
+    campaign.delete()
+    return redirect("campaigns")

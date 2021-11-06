@@ -20,7 +20,8 @@ from .views import (
     rewards,
     home,
     updateUser,
-    updateCampaign
+    updateCampaign,
+    deleteCampaign
 )
 
 # Preload files
@@ -45,6 +46,7 @@ urlpatterns = [
     path('createcampaign/campaignsettings/FAQ/<id>/', faq, name="faq"),
     path('updateUser/',updateUser,name="update-user"),
     path('updateCampaign/<id>/',updateCampaign, name="campign-update"),
+    path('delete/<id>/',deleteCampaign, name="delete"),
 ]
 
 
