@@ -1,0 +1,364 @@
+.timo {
+    color: grey;
+    text-align: center;
+    width: 100%;
+    z-index: -1;
+  }
+
+  #campaigns {
+    border-bottom: 3px solid purple;
+
+  }
+
+
+  .adf-d-e-re-df-v-b{
+    width:100%;
+    position:relative ;
+    bottom:-100px;
+  }
+
+  @media(max-width:880px){
+    .adf-d-e-re-df-v-b{
+      width:100%;
+      position:relative ;
+      bottom:-50vh;
+    }
+  }
+
+  @media (max-width:1000px) {
+    .timo {
+      font-size: 20px;
+      width: 100%;
+
+    }
+  }
+
+  .c-button {
+    background-color: purple;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  .all-camps-in-my-camps{
+    width:85%;
+    margin:15px;
+    margin-left:8%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display:table;
+    clear: both;
+  }
+
+
+
+  .image-and-the-options{
+   position: relative;
+  }
+
+  .campaign-div-class-fd-as-ioo-os img{
+    width:100%;
+    cursor: pointer;
+  }
+
+
+
+  #show-more-options-df{
+    position: absolute;
+    right:20px;
+    width:30px;
+    height: 30px;
+    cursor: pointer;
+    top:10px;
+    background-color: rgba(255, 255, 255, 0.486);
+    border-radius: 20px;
+    
+  }
+
+  #show-more-options-df:hover{
+    background-color: white;
+  }
+
+
+
+  .campaign-div-class-fd-as-ioo-os h4{
+    font-weight: bolder;
+    margin:10px;
+    cursor: pointer;
+  }
+  
+  .campaign-div-class-fd-as-ioo-os p{
+    font-size: 17px;
+    margin-left:10px
+  }
+
+  .campaign-div-class-fd-as-ioo-os ty{
+    font-size: 13px;
+    margin-left:10px;
+  }
+
+  .the-numbers-of-funds-df-g{
+    width:100%;
+    height: 30px;
+    margin-top:20%;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+  }
+
+  .sfd-df-sd-f-asd-fdfdfd-fdf4-dfkhj-jh progress {
+  width:95%;
+  }
+
+  .sfd-df-sd-f-asd-fdfdfd-fdf4-dfkhj-jh p{
+    font-size: 13px;
+    float: right;
+    margin-right: 10px;
+  }
+
+
+
+
+  #category{
+    margin-top:40px;
+    display: inline;
+    color:white;
+    border-radius: 10px;
+    padding:0px;
+    font-size: 11px;
+    border:none;
+    padding-right: 3px;
+    background-color: rgb(0, 132, 255);
+    padding-left:3px;
+  }
+
+  .the-name-and-the-camp-ccc p{
+    display: inline-block;
+    cursor: pointer;
+    margin-top:4px;
+  }
+
+  #clocks{
+    color: black;
+    font-size: 13px;
+  }
+
+  .clock-days-no-frame{
+      margin-top:30px;
+    margin-left:8px;
+    font-size: 12px;
+    font-weight: bold;
+    float: left;
+  }
+
+
+
+
+
+
+
+
+  /*the rest*/
+
+  .menu-dropdown{
+    height: 100px;
+    padding:0px;
+    transition: 0.5s;
+  }
+
+  .menu-dropdown i{
+    font-weight: bold;
+    cursor: pointer;
+    margin:0px;
+  }
+
+  .menu-dropdown a{
+    margin:0px;
+    color:black;
+    padding:0px;
+    line-height: 10px;
+  }
+
+
+  .menu-dropdown li{
+    list-style: none;
+    cursor: pointer;
+    margin-top: -15px;
+    padding:4px;
+    margin-left:5px;
+
+  } 
+   .menu-dropdown li:hover{
+    background-color: rgb(238, 238, 238);
+  }
+
+
+
+
+
+
+
+   
+  .menu2 {
+    position: absolute;
+    right:0px;
+    top:0px;
+    width:30px;
+    padding:0px;
+  }
+  
+  /* style for the button */
+  .menu2:before {
+      background-size:20px;
+      color:white;
+      padding: 5px 10px;
+      border: 1px solid #555;
+      border-radius:3px;
+  }
+  
+  .menu2:focus { pointer-events:none; }
+  
+  /* If :focus detected the dropdown menu is displayed by making it visible */
+  .menu2:focus .menu-dropdown { opacity:1; visibility:visible; }
+  
+  /* style for the dropdown box */
+  .menu-dropdown {
+      background-color: #364656;
+      width: 180px;
+      margin:3px 0 0 0;
+      padding: 10px;
+      border-radius:5px;
+      border-radius:3px;
+      pointer-events: auto;
+      position: absolute;
+      right:5px;
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 1s;
+      background: #ffffff;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+     }
+  
+  /* style the links in the dropdown */
+  .menu-dropdown a {
+      background:transparent;
+      border:none;
+      display:block;
+      color:rgb(0, 0, 0);
+      text-decoration:none;
+      width:160px;
+      padding-top:5px;
+      line-height: 5px;
+  } 
+  
+  .menu-dropdown a:hover{
+    color:orange
+  }
+
+  .all-camps-in-my-camps{
+    width:85%;
+    margin:15px;
+    margin-left:8%;
+    display: grid;
+    clear: both;
+    place-items:center;
+  }
+
+
+  
+  .campaign-div-class-fd-as-ioo-os{
+    border:none;
+    width:25%;
+    height: 75vh;
+    margin-left:50px;
+    margin-right: 50px;
+    float: left;
+    border-radius: 3px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  .th-act-div-too{
+  border:1px solid rgb(221, 221, 221);
+  height:550px
+  }
+
+  .all-activity{
+    border:1px solid rgb(177, 177, 177);
+    width:60%;
+    float: right;
+    height: 70vh;
+    margin:25px;
+    overflow-y: scroll;
+  }
+
+  @media (max-width:1300px){
+  .th-act-div-too{
+  width:160vh;
+  }
+  }
+
+  @media(max-width:1000px){
+    .th-act-div-too{
+  width:100%;
+  }
+
+    .all-activity{
+
+    width:55%;
+  }
+  }
+
+  @media(max-width:886px){
+    .th-act-div-too{
+  border:none;
+  height:550px;
+  display: grid;
+  place-items: center;
+  }
+  .campaign-div-class-fd-as-ioo-os{
+    width:75%;
+    height: 100%;
+    float: none;
+  }
+
+  .all-activity{
+    width:75%;
+    float: none;
+    height: 40vh;
+    margin-top:20px
+  
+  }
+  }
+
+  @media(max-width:580px){
+    .th-act-div-too{
+  border:none;
+  height:550px;
+  display: grid;
+  place-items: center;
+  }
+  .campaign-div-class-fd-as-ioo-os{
+    width:95%;
+    height: 100%;
+    float: none;
+  }
+
+  .all-activity{
+    width:95%;
+    float: none;
+    height: 30vh;
+    margin-top:20px
+  
+  }
+
+  
+}

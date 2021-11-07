@@ -13,64 +13,238 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/dashnav.css' %}">
+<link rel="stylesheet" href="{% static 'css/campaign.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
-    .timo {
-        position: fixed;
-        color: grey;
-        top: 50%;
-        text-align: center;
-        width: 100%;
-        z-index: -1;
-    }
 
-    #campaigns {
-        border-bottom: 3px solid purple;
-
-    }
-
-    @media (max-width:1000px) {
-        .timo {
-            font-size: 20px;
-            width: 100%;
-
-        }
-    }
-
-    .c-button {
-        background-color: purple;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        text-align: center;
-        width: 300px;
-        border: none;
-        border-radius: 5px;
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translate(-50%, -50%)
-    }
 </style>
+
+
 
 {% endblock head %}
 
 <body>
 
 
-    {% block everything %}
-    {% if campaigns%}
-    {%for campaign in campaigns%}
-    <p>{{campaign.websiteURL}}</p> <a style="text-decoration: none; color: purple;"
-        href="{% url 'campign-update' campaign.id%}">Edit</a> <a style="text-decoration: none; color: red;"
-        href="{% url 'delete' campaign.id%}">Delete</a>
-    {% endfor%}
-    {% else%}
-    <h2 class="timo">You don't have any campaigns yet</h2>
-    {% endif %}
+
+  {% block everything %}
+  {% if campaigns%}
+  {%for campaign in campaigns%}
+  <div class="all-camps-in-my-camps">
+
+    <div class="th-act-div-too">
+
+  <div class="campaign-div-class-fd-as-ioo-os">
+    <div class="image-and-the-options">
+  <img src={{campaign.pitchFile.url}} alt="campaign image">
+
+
+  <div tabindex="0" class="menu2">   
+  <img src="{% static 'images/expand.png' %}" id="show-more-options-df">
+<div class="menu-dropdown">
+    <li><a href="{% url 'campign-update' campaign.id%}"><i class="fa fa-eye" aria-hidden="true"></i> Edit</a></li>
+     <li style="margin-top:5px;"><a href="{% url 'campaignviewprivate' campaign %}"><i class="fa fa-pencil-square" aria-hidden="true"></i> Preview</li></a><br>
+     <li><a href="#" id="myBtn"><i style="color:red;" class="fa fa-trash" aria-hidden="true"></i> Delete </a></li><br>
+</div></div>
+</div>
 
 
 
-    <a style="color:white;" href="{% url 'createcampaign' %}" target="_blank" rel="noreferrer noopener">
-        <button class="c-button">CREATE CAMPAIGN</button></a>
-    <br><br><br><br><br><br><br>
 
-    {% endblock %}
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" id="close">&times;</span>
+      <h4 style="text-align: center;margin-top:20px">Are you sure you want to delete {{campaign.campaignName}} ?</h4>
+      <p style="text-align: center; font-size:14px;color:red;">This will permanently delete your campaign</p>
+
+      <a href="{% url 'delete' campaign.id%}"><button class="btn btn-danger">Delete</button></a>
+      <button class="btn btn-light" id="closem" onclick="closemodel()">Cancel</button>
+    </div>
+  
+  </div>
+
+  <style>
+      .btn-light{
+          float:right;
+          margin-right: 40px;
+          margin-top:50px
+      }
+
+      .btn-danger{
+          margin-left:40px;
+          margin-top:50px;
+      }
+  </style>
+
+
+
+  
+  <div class="the-name-and-the-camp-ccc">
+    <p>{{campaign.campaignName}}<p id="category" class="btn btn-lg btn-primary" style="font-weight: bold;">{{campaign.category}}</p></p>
+    </div>
+  
+
+    <p>By {{request.user}}</p>
+    <ty>{{campaign.campaignTagline}}</ty>
+
+    <div class="the-numbers-of-funds-df-g">
+      <div class="sfd-df-sd-f-asd-fdfdfd-fdf4-dfkhj-jh">
+      <p style="float: left;">0.00 rasied</p>
+      <p>0%</p>
+      <progress id="file" value="1" max="100"> 32% </progress>
+     </div>
+    <div class="clock-days-no-frame"> <i class="fa fa-clock-o" aria-hidden="true" id="clocks"></i> {{campaign.startdate}} {{campaign.enddate}} Days left</div>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="all-activity">
+    <p>No activity yet</p>
+  </div>
+
+
+  </div>
+
+
+
+
+<h1>dfff</h1>
+
+
+      
+
+
+</div>
+
+  {% endfor%}
+  {% else%}
+  <h2 class="timo">You don't have any campaigns yet</h2>
+  {% endif %}
+
+
+<div class="adf-d-e-re-df-v-b">
+  <a style="color:white;" href="{% url 'createcampaign' %}" target="_blank" rel="noreferrer noopener">
+    <button class="c-button">CREATE CAMPAIGN</button></a>
+    </div>
+
+
+
+
+<script>
+  $(document).ready(function(){ 
+var colors = ['red','lime','rgb(189, 44, 0)','rgb(0, 132, 255)','rgb(108, 198, 68)'];
+var new_color = colors[Math.floor(Math.random()*colors.length)];
+$('#category').css('background-color',new_color);
+});
+
+
+</script>
+
+<script>
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("close");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function closemodel(){
+var closemod=document.getElementById('closem')
+modal.style.display = "none";
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #6d6d6d;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media(max-width:830px){
+    .modal-content {
+  width: 80%;
+}
+}
+
+@media(max-width:500px){
+    .modal-content{
+        width:95%;
+    }
+}
+
+</style>
+
+
+  {% endblock %}

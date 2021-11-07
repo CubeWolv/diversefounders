@@ -185,3 +185,23 @@ def deleteCampaign(request,id):
     campaign = get_object_or_404(Campaign, id=id)
     campaign.delete()
     return redirect("campaigns")
+
+@login_required
+def campaignviewprivate(request ,id):
+    campaigns = Campaign.objects.filter(owner=request.user)
+    return render(request, 'campaignviewprivate.html',{'campaigns':campaigns})
+
+
+
+
+def startups(request):
+    return render(request, "startups/startups.html")
+
+def investors(request):
+    return render(request,"startups/investors.html")
+
+def  startupsinvestorprofile(request):
+    return render(request, "startups/forms/investorprofile.html")
+
+def startupsstartupprofile(request):
+    return render(request, "startups/forms/startupprofile.html")

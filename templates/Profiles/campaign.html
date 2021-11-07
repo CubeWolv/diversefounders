@@ -13,62 +13,105 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/dashnav.css' %}">
+<link rel="stylesheet" href="{% static 'css/campaign.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
-  .timo {
-    position: fixed;
-    color: grey;
-    top: 50%;
-    text-align: center;
-    width: 100%;
-    z-index: -1;
-  }
 
-  #campaigns {
-    border-bottom: 3px solid purple;
-
-  }
-
-  @media (max-width:1000px) {
-    .timo {
-      font-size: 20px;
-      width: 100%;
-
-    }
-  }
-
-  .c-button {
-    background-color: purple;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-    width: 300px;
-    border: none;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translate(-50%, -50%)
-  }
 </style>
+
+
 
 {% endblock head %}
 
 <body>
 
 
+
   {% block everything %}
   {% if campaigns%}
   {%for campaign in campaigns%}
-  <p>{{campaign.websiteURL}}</p>
+  <div class="all-camps-in-my-camps">
+
+    <div class="th-act-div-too">
+
+  <div class="campaign-div-class-fd-as-ioo-os">
+    <div class="image-and-the-options">
+  <img src={{campaign.pitchFile.url}} alt="campaign image">
+
+
+  <div tabindex="0" class="menu2">   
+  <img src="{% static 'images/expand.png' %}" id="show-more-options-df">
+<div class="menu-dropdown">
+    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i> Edit</a></li>
+     <li style="margin-top:5px;"><a href="{% url 'campaignviewprivate' campaign %}"><i class="fa fa-pencil-square" aria-hidden="true"></i> Preview</li></a><br>
+     <li><i style="color:red;" class="fa fa-trash" aria-hidden="true"></i> Delete</li><br>
+</div></div>
+</div>
+
+  
+  <div class="the-name-and-the-camp-ccc">
+    <p>{{campaign.campaignName}}<p id="category" class="btn btn-lg btn-primary" style="font-weight: bold;">{{campaign.category}}</p></p>
+    </div>
+  
+
+    <p>By {{request.user}}</p>
+    <ty>{{campaign.campaignTagline}}</ty>
+
+    <div class="the-numbers-of-funds-df-g">
+      <div class="sfd-df-sd-f-asd-fdfdfd-fdf4-dfkhj-jh">
+      <p style="float: left;">0.00 rasied</p>
+      <p>0%</p>
+      <progress id="file" value="1" max="100"> 32% </progress>
+     </div>
+    <div class="clock-days-no-frame"> <i class="fa fa-clock-o" aria-hidden="true" id="clocks"></i> {{campaign.startdate}} {{campaign.enddate}} Days left</div>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="all-activity">
+    <p>No activity yet</p>
+  </div>
+
+
+  </div>
+
+
+
+
+<h1>dfff</h1>
+
+
+      
+
+
+</div>
+
   {% endfor%}
   {% else%}
   <h2 class="timo">You don't have any campaigns yet</h2>
   {% endif %}
 
 
-
+<div class="adf-d-e-re-df-v-b">
   <a style="color:white;" href="{% url 'createcampaign' %}" target="_blank" rel="noreferrer noopener">
     <button class="c-button">CREATE CAMPAIGN</button></a>
-  <br><br><br><br><br><br><br>
+    </div>
+
+
+
+
+<script>
+  $(document).ready(function(){ 
+var colors = ['red','lime','rgb(189, 44, 0)','rgb(0, 132, 255)','rgb(108, 198, 68)'];
+var new_color = colors[Math.floor(Math.random()*colors.length)];
+$('#category').css('background-color',new_color);
+});
+
+
+</script>
+
 
   {% endblock %}

@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">   
 {% block head %}
-<head> 
+<head>
+<link rel='icon' href="{% static 'images/icon.png' %}">
 
 </head>
 {% endblock %}
@@ -57,7 +58,7 @@
   
   .navlinks li {
     display: inline-block;
-    margin: 0px 20px;
+    margin: 0px 10px;
   }
   
   a:hover{
@@ -67,7 +68,7 @@
   .navlinks li a {
     color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s linear 0s;
   }
   
@@ -234,32 +235,71 @@
     .menu-dropdown1 a:hover{
       color:orange
     }
+
+    #sea-icon{
+      margin-left:20px;
+      cursor: pointer;
+    }
+
+    .search-section{
+    position: fixed;
+    width:100%;
+    top:0px;
+    background-color: white;
+    height:60px;
+    z-index:30;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    display: none;
+    }
+
+    #remove-searchbar{
+      float:right;
+      font-size:30px;
+      margin-top:0.5%;
+      margin-right:20px;
+      cursor: pointer;
+    }
+
     .searchbar {
-  margin-left:30px;
-  width: 130px;
-   border: 1px solid grey;
-  border-radius: 4px;
+  width: 95%;
+  float:left;
+  border:none;
   box-sizing: border-box;
-  border-radius: 4px;
   font-size: 16px;
   background-color: white;
   background-image: url("{% static 'images/search.png' %}");
-  background-position: 10px 5px; 
+  background-position: 10px 15px; 
   background-repeat: no-repeat;
-  padding-top:6px;
-  padding-left:35px;
-  padding-bottom:6px;
+  padding-top:18px;
+  padding-bottom:10px;
+  padding-left:60px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-
 }
+
+@media(max-width:860px){
+  .searchbar {
+    width:90%;
+  }
+}
+
+@media(max-width:460px){
+  .searchbar {
+    width:90%;
+  }
+  #remove-searchbar{
+    margin-top:8px;
+    margin-right:4px;
+  }
+}
+
+
 
 .searchbar:focus {
   transition: 0.5s;
-  border: 1px solid rgb(255, 191, 0) !important;
-  box-shadow: 0 0 3px rgb(255, 194, 18) !important;
-  -moz-box-shadow: 0 0 3px rgb(255, 194, 18) !important;
-  -webkit-box-shadow: 0 0 3px rgb(255, 194, 18) !important;
+  border:none !important;
+  box-shadow: none !important;
+
   }
   
   .searchbar:focus{
@@ -267,60 +307,7 @@
   outline: none !important;
   }
 
-.searchbar:focus {
-  width: 35%;
-}
 
-@media(max-width:1300px){
-.searchbar:focus {
-  width: 25%;
-}
-}
-
-@media (max-width:1100px){
-.searchbar:focus {
-  width: 200px;
-}
-}
-
-
-@media(max-width:550px){
-
-.searchbar{
-width:0px;
-float:right;
-margin-right: 10px;
-margin-top:3%;
-border:none;
-
-}
-
-.searchbar:focus{
-  width:0%;
-}
-
-
-
-}
-
-    @media(max-width:550px){
-
-.searchbar{
-width:0px;
-float:right;
-margin-right: 10px;
-margin-top:3%;
-border:none;
-
-}
-
-.searchbar:focus{
-  width:0%;
-}
-
-
-
-}
 
 .hr1{
 border:1px solid rgb(197, 197, 197);
@@ -430,8 +417,77 @@ margin-left:15px;
   display: none;
 }
 
+/*  drop down ............................................................................. .        .          . .*/
 
-  
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 400px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right:0px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+
+.dropdown1:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.alinkdrop{
+  line-height: 5px;
+}
+
+.dropdown1 .dropdown-content1::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: 160px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+
+@media (max-width: 820px) {
+    .bi-caret-down{
+     display:none
+    }
+    .dropdown1:hover .dropdown-content1{
+      display:none
+    }
+  }
+
+
   </style>
   </head>
 
@@ -444,13 +500,60 @@ margin-left:15px;
             <i class="fas fa-bars" style="color: black;"></i>
           </label>
           <a href="{% url 'home' %}" class="logo">DiverseFounders</a>
+
+          <i class="fa fa-search" aria-hidden="true" id="sea-icon" onclick="showsearchBar()"></i>
+
+          <div class="search-section" id="searchcontainerP">
+            <form>
           <input type="text" name="search" placeholder="Search.." class="searchbar">
+          <p id="remove-searchbar" onclick="removesB()">&times;</p>
+          </form>
+          </div>
+
+          <script>
+            var searchcontainer=document.getElementById('searchcontainerP');
+            var removeS=document.getElementById("remove-searchbar")
+           function removesB(){
+            searchcontainer.style.display="none"
+           }
+
+           function showsearchBar(){
+            searchcontainer.style.display="block"
+           }
+            </script>
 
 
-          <ul class="navlinks">
-            <li class="ds"><a href="{% url 'projects' %}" class="lipo">Startups</a></li>
-            <li><a href="#" class="lipo">Start a Campaign</a></li>
-            <li><a href="#" class="lipo">About</a></li>
+
+
+
+
+          <ul class="navlinks"> 
+
+            <div class="dropdown1">
+            <li class="ds"><a href="{% url 'projects' %}" class="lipo">Discover <i class="bi bi-caret-down"></i></a></li>
+              <div class="dropdown-content1">
+              <a href="#" class="alinkdrop">All campaigns</a>
+              <a href="#" class="alinkdrop">Arts</a>
+              <a href="#" class="alinkdrop">Audio & music</a>
+              <a href="#" class="alinkdrop">Design & Tech</a>
+              <a href="#" class="alinkdrop">Film</a>
+              <a href="#" class="alinkdrop">Games</a>
+              <a href="#" class="alinkdrop">Life style</a>
+              <a href="#" class="alinkdrop">Publishing</a>
+              
+              </div>
+            </div>
+            
+              <li><a href="{% url 'startups' %}" class="lipo">Investors</a></li>
+
+
+
+
+            <li><a href="https://diversefounders.slack.com" target="_black"> Community</a></li>
+            <li><a href="{% url 'createcampaign' %}" class="lipo">Start a Campaign</a></li>
+
+
+          
   
             {% if user.is_authenticated %}
 

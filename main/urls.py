@@ -21,7 +21,13 @@ from .views import (
     home,
     updateUser,
     updateCampaign,
-    deleteCampaign
+    deleteCampaign,
+    campaignviewprivate,
+    home,
+    startups,
+    startupsinvestorprofile,
+    startupsstartupprofile,
+    investors,
 )
 
 # Preload files
@@ -47,6 +53,12 @@ urlpatterns = [
     path('updateUser/',updateUser,name="update-user"),
     path('updateCampaign/<id>/',updateCampaign, name="campign-update"),
     path('delete/<id>/',deleteCampaign, name="delete"),
+    path('dashboard/yourcampaigns/<id>/',campaignviewprivate, name='campaignviewprivate'),
+    path('startups/createinvestorprofile/',startupsinvestorprofile, name="startupsinvestorprofile"),
+    path('startups/createstartupprofile/',startupsstartupprofile,name="startupsstartupprofile"),
+    path('startups/',startups, name='startups'),
+    path('startups/investors/',investors, name="investors"),
+
 ]
 
 
